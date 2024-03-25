@@ -1,42 +1,65 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+:root {
+  --main-bg-color: #355070;
+  --main-color: #fdfdff;
+  --accent-color: #01baef;
+  --orange-color: #faa816;
+  --rose-color: #b56576;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+* {
+  font-family: "Krub", sans-serif;
+  margin: 0;
+  color: var(--main-color);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body {
+  background: fixed;
+  background-size: cover;
+  background-image: url(./assets/max-bender-VmX3vmBecFE-unsplash.jpg);
+  background-color: var(--main-bg-color);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+nav {
+  background-color: var(--main-bg-color);
+  box-shadow: 0 0px 1200px 0px var(--accent-color);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.212);
+  height: 4em;
+  width: 100vw;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
 }
 
-.card {
-  padding: 2em;
+nav h1 {
+  margin: auto;
 }
 
-.read-the-docs {
-  color: #888;
+nav ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  width: max-content;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  padding: 10px;
+  padding-bottom: 20px;
+  border-radius: 10px 10px 0 0;
+}
+
+nav ul li a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px 16px 0 0;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8.2px);
+  -webkit-backdrop-filter: blur(8.2px);
+}
+
+main {
+  height: auto;
 }
