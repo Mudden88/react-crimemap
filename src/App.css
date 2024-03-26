@@ -13,14 +13,14 @@
 }
 
 body {
-  background: fixed;
-  background-size: cover;
-  background-image: url(./assets/max-bender-VmX3vmBecFE-unsplash.jpg);
   background-color: var(--main-bg-color);
-  height: calc(100vh - 177.2px);
 }
 
 main {
+  background: fixed;
+  background-size: cover;
+  background-position: center;
+  background-image: url(./assets/max-bender-VmX3vmBecFE-unsplash.jpg);
   height: fit-content;
 }
 
@@ -28,9 +28,8 @@ nav {
   background-color: var(--main-bg-color);
   box-shadow: 0 0px 1200px 0px var(--accent-color);
   border-bottom: 1px solid rgba(255, 255, 255, 0.212);
-  height: 4em;
+  height: fit-content;
   width: 100vw;
-  margin-bottom: 30px;
   display: flex;
   align-items: center;
 }
