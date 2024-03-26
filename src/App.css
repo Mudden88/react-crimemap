@@ -6,6 +6,12 @@
   --rose-color: #b56576;
 }
 
+#root {
+  background-image: url(./assets/max-bender-VmX3vmBecFE-unsplash.jpg);
+  background-position: center;
+  background-attachment: fixed;
+}
+
 * {
   font-family: "Krub", sans-serif;
   margin: 0;
@@ -16,18 +22,9 @@ body {
   background-color: var(--main-bg-color);
 }
 
-main {
-  background: fixed;
-  background-size: cover;
-  background-position: center;
-  background-image: url(./assets/max-bender-VmX3vmBecFE-unsplash.jpg);
-  height: fit-content;
-}
-
 nav {
   background-color: var(--main-bg-color);
-  box-shadow: 0 0px 1200px 0px var(--accent-color);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.212);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
   height: fit-content;
   width: 100vw;
   display: flex;
