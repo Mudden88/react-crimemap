@@ -1,6 +1,6 @@
 .enter {
   width: 100vw;
-  height: 100vh;
+  min-height: calc(100vh - 177.2px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,19 +8,21 @@
 .rl {
   cursor: pointer;
   padding: 30px;
-  width: fit-content;
-  height: fit-content;
+  width: 300px;
+  height: 120px;
   /* From https://css.glass */
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.1);
   border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 60px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(8.2px);
   -webkit-backdrop-filter: blur(8.2px);
   border: 1px solid rgba(255, 255, 255, 0.44);
+  text-align: center;
+  align-content: center;
 }
 
 .rl:hover {
-  box-shadow: 0 10px 100px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 100px rgba(0, 0, 0, 0.2);
 }
 .rl:active {
   transform: scale(1.1);
@@ -38,7 +40,7 @@ a {
 
 .grid {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 1fr 1fr;
 }
 
 .cardWrapper {
@@ -48,11 +50,11 @@ a {
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  max-height: 700px;
   width: 500px;
   margin: 10px;
-  overflow: scroll;
   grid-column: 1/2;
+  max-height: 80vh;
+  overflow: scroll;
 }
 ul {
   padding: 20px;
@@ -69,6 +71,10 @@ ul {
   padding: 10px;
 }
 
+.eventCard:hover {
+  border: 1px solid var(--orange-color);
+}
+
 .date {
   font-size: 12px;
   text-align: right;
@@ -76,7 +82,8 @@ ul {
 
 .cardContent {
   margin-bottom: 10px;
-  font-style: italic;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 hr {
@@ -106,11 +113,54 @@ hr {
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  width: 50%;
-  height: 50%;
   margin: 10px;
+  padding: 20px;
+  height: auto;
+  width: auto;
 }
 
 .eventImage {
   border-radius: 30px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.search {
+  grid-column: 1/2;
+}
+
+select {
+  background-color: var(--main-color);
+  color: var(--main-bg-color);
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px;
+  font-family: "krub", sans-serif;
+  outline: none;
+  border: none;
+}
+
+option {
+  font-family: "krub", sans-serif;
+}
+
+.paragraph {
+  margin: 10px;
+  text-transform: capitalize;
+}
+
+input {
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px 0 10px 10px;
+
+  background-color: var(--main-color);
+  color: var(--main-bg-color);
 }

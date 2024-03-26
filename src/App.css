@@ -17,6 +17,11 @@ body {
   background-size: cover;
   background-image: url(./assets/max-bender-VmX3vmBecFE-unsplash.jpg);
   background-color: var(--main-bg-color);
+  height: calc(100vh - 177.2px);
+}
+
+main {
+  height: fit-content;
 }
 
 nav {
@@ -58,8 +63,4 @@ nav ul li a:hover {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(8.2px);
   -webkit-backdrop-filter: blur(8.2px);
-}
-
-main {
-  height: auto;
 }

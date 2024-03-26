@@ -7,19 +7,29 @@ function Home() {
   const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
-    axios
-      .get("https://brottsplatskartan.se/api/events?limit=25&app=mmITHS")
-      .then((response) => {
-        setEvents(response.data.data);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    fetchData();
   }, []);
+
+  function fetchData() {
+    setTimeout(() => {
+      axios
+        .get("https://brottsplatskartan.se/api/events?limit=25&app=mmITHS")
+        .then((response) => {
+          setEvents(response.data.data);
+        })
+        .then(() => {
+          setLoading(false);
+        });
+    }, 2000);
+  }
 
   const showImage = (event) => {
     setSelectedImage(event);
   };
+
+  function closeImage() {
+    setSelectedImage(null);
+  }
 
   return (
     <>
@@ -37,23 +47,24 @@ function Home() {
                   className='eventCard'
                   onClick={() => showImage(event)}>
                   <h4> {event.description} </h4>
-                  <p className='date'>{event.location_string}</p>
+                  <p className='date'>
+                    {event.location_string} <br /> {event.date_human}
+                  </p>
                   <hr />
                   <p className='cardContent'>{event.content_teaser}</p>
 
-                  <p className='date'>{event.date_human}</p>
                   <a
                     className='cardLink'
                     href={event.permalink}
                     target='_blanc'>
-                    Visa Mer
+                    Visa mer...
                   </a>
                 </div>
               ))
             )}
           </ul>
         </div>
-        <div className='mapwrap'>
+        <div>
           {selectedImage && (
             <>
               <div className='mapContainer'>
@@ -61,7 +72,9 @@ function Home() {
                 <img
                   className='eventImage'
                   src={selectedImage.image}
-                  alt='Karta på händelse'></img>
+                  alt='Karta på händelse'
+                  onClick={closeImage}></img>
+                <p>Tryck på kartan för att stänga</p>
               </div>
             </>
           )}
