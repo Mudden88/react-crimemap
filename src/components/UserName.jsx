@@ -2,19 +2,26 @@ import styled from "styled-components";
 import { Formik } from "formik";
 import PropTypes from "prop-types";
 import { useState } from "react";
+import { useContext } from "react";
+import UsernameContext from "../UsernameContext";
 
 function UserName() {
   const [submittedName, setSubmittedName] = useState("");
+  const initialUserName = useContext(UsernameContext);
 
   const Paragraph = styled.p`
-    border-bottom: 1px solid var(--orange-color);
     width: fit-content;
     margin-left: 10px;
     font-size: 18px;
+    font-weight: 600;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    color: var(--main-color);
+    border-radius: 16px;
   `;
 
   const Hellomessage = ({ userName }) => {
-    return <Paragraph>Hej {userName || "Anonym"}!</Paragraph>;
+    return <Paragraph>Hej {userName || initialUserName}!</Paragraph>;
   };
 
   Hellomessage.propTypes = {

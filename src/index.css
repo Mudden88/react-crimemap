@@ -176,3 +176,12 @@ input:disabled {
 .submit:active {
   border: 1px solid var(--orange-color);
 }
+
+label {
+  margin: 10px;
+}
+
+.sub {
+  margin-left: 10px;
+  text-decoration: dotted black;
+}

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import UserName from "./UserName";
+import UsernameContext from "../UsernameContext";
 
 function Events() {
   const [events, setEvents] = useState([]);
@@ -79,11 +80,14 @@ function Events() {
       <div className='grid'>
         <div className='search'>
           <h2 className='title'>Sök Efter Stad</h2>
-          <p>
+          <p className='sub'>
             Välj en stad i rullgardingsmenyn eller använd adressfältet för att
             skriva in stad
           </p>
-          <UserName />
+          <UsernameContext.Provider
+            value={"Anonym, fyll i ditt namn och tryck på skicka"}>
+            <UserName />
+          </UsernameContext.Provider>
           <select value={selectedCity || ""} onChange={handleCityChange}>
             <option label='Välj en stad' disabled value={null} />
             {options.map((option, index) => (
