@@ -163,3 +163,16 @@ input {
   background-color: var(--main-color);
   color: var(--main-bg-color);
 }
+
+.errors {
+  color: var(--orange-color);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+input:disabled {
+  background-color: rgba(128, 128, 128, 0.24);
+}
+
+.submit:active {
+  border: 1px solid var(--orange-color);
+}

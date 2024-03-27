@@ -73,7 +73,7 @@ function Events() {
     setSelectedCity(selectedCity);
     fetchEvents(selectedCity);
   };
-  const user = "";
+
   return (
     <>
       <div className='grid'>
@@ -83,7 +83,7 @@ function Events() {
             Välj en stad i rullgardingsmenyn eller använd adressfältet för att
             skriva in stad
           </p>
-          <UserName initialUser={user} />
+          <UserName />
           <select value={selectedCity || ""} onChange={handleCityChange}>
             <option label='Välj en stad' disabled value={null} />
             {options.map((option, index) => (
