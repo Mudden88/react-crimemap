@@ -1,38 +1,78 @@
-import { useState } from "react";
+import styled from "styled-components";
+import { Formik } from "formik";
 import PropTypes from "prop-types";
+import { useState } from "react";
+import { useContext } from "react";
+import UsernameContext from "../UsernameContext";
 
 function UserName() {
-  const [user, setUser] = useState("");
-  const [newUser, setNewUser] = useState("Anonym");
+  const [submittedName, setSubmittedName] = useState("");
+  const initialUserName = useContext(UsernameContext);
 
-  const handleChange = (e) => {
-    setUser(e.target.value);
+  const Paragraph = styled.p`
+    width: fit-content;
+    margin-left: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    color: var(--main-color);
+    border-radius: 16px;
+  `;
+
+  const Hellomessage = ({ userName }) => {
+    return <Paragraph>Hej {userName || initialUserName}!</Paragraph>;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setNewUser(user);
-    setUser("");
+  Hellomessage.propTypes = {
+    userName: PropTypes.string.isRequired,
   };
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input
-          type='text'
-          value={user}
-          placeholder='Ange ditt namn'
-          onChange={handleChange}
-        />
-        <input type='submit' value='Skicka' />
-      </form>
-      <p className='paragraph'>Hej {newUser}! </p>
+      <Formik
+        initialValues={{ userName: "" }}
+        onSubmit={(values, { setSubmitting, resetForm }) => {
+          setTimeout(() => {
+            setSubmitting(false);
+            setSubmittedName(values.userName);
+            resetForm();
+          }, 1000);
+        }}
+        validate={(values) => {
+          const errors = {};
+
+          if (values.userName.trim() === "") {
+            errors.userName = "Vänligen fyll i ditt namn";
+          }
+          return errors;
+        }}>
+        {({ handleChange, handleSubmit, isSubmitting, values, errors }) => (
+          <>
+            <form onSubmit={handleSubmit}>
+              <label>
+                Ditt namn
+                <input
+                  name='userName'
+                  onChange={handleChange}
+                  type='text'
+                  value={values.userName}
+                />
+              </label>
+              <span className='errors'>{errors.userName}</span>
+              <input
+                className='submit'
+                value='Skicka'
+                disabled={isSubmitting}
+                type='submit'
+              />
+            </form>
+            <Hellomessage userName={submittedName} />
+          </>
+        )}
+      </Formik>
     </>
   );
 }
-
-UserName.propTypes = {
-  initialUser: PropTypes.string.isRequired,
-};
 
 export default UserName;
