@@ -13,8 +13,6 @@ function UserName() {
     width: fit-content;
     margin-left: 10px;
     font-size: 18px;
-    font-weight: 600;
-    background-color: rgba(0, 0, 0, 0.6);
     padding: 10px;
     color: var(--main-color);
     border-radius: 16px;

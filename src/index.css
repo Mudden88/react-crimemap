@@ -40,7 +40,7 @@ a {
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: auto 1fr;
 }
 
 .cardWrapper {
@@ -100,13 +100,14 @@ hr {
 .title {
   margin: 20px;
 }
-
-.mapContainer {
+.mapWrapper {
   grid-column: 2/3;
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  height: 100%;
+}
+.mapContainer {
+  text-align: center;
   background: rgba(0, 0, 0, 0.2);
   border-radius: 16px;
   box-shadow: 0 4px 300px rgba(0, 0, 0, 0.1);
@@ -116,7 +117,7 @@ hr {
   margin: 10px;
   padding: 20px;
   height: auto;
-  width: auto;
+  width: fit-content;
 }
 
 .eventImage {
@@ -184,4 +185,8 @@ label {
 .sub {
   margin-left: 10px;
   text-decoration: dotted black;
+}
+
+.subA {
+  margin: 30px;
 }

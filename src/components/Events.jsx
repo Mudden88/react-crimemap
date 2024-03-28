@@ -28,7 +28,7 @@ function Events() {
     { value: "Reftele", label: "Gislaved" },
   ];
 
-  options.sort((a, b) => a.label.localeCompare(b.label, "sv"));
+  options.sort((a, b) => a.value.localeCompare(b.value, "sv"));
 
   const { city } = useParams();
 
@@ -78,29 +78,30 @@ function Events() {
   return (
     <>
       <div className='grid'>
-        <div className='search'>
-          <h2 className='title'>Sök Efter Stad</h2>
-          <p className='sub'>
-            Välj en stad i rullgardingsmenyn eller använd adressfältet för att
-            skriva in stad
-          </p>
-          <UsernameContext.Provider
-            value={"Anonym, fyll i ditt namn och tryck på skicka"}>
-            <UserName />
-          </UsernameContext.Provider>
-          <select value={selectedCity || ""} onChange={handleCityChange}>
-            <option label='Välj en stad' disabled value={null} />
-            {options.map((option, index) => (
-              <option value={option.value} key={index}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        </div>
         <div className='cardWrapper'>
+          <div className='search'>
+            <h2 className='title'>Sök Efter Stad</h2>
+            <hr />
+            <p className='sub'>
+              Välj en stad i rullgardingsmenyn eller använd adressfältet för att
+              skriva in stad
+            </p>
+            <UsernameContext.Provider
+              value={"Anonym, fyll i ditt namn och tryck på skicka"}>
+              <UserName />
+            </UsernameContext.Provider>
+            <select value={selectedCity || ""} onChange={handleCityChange}>
+              <option label='Välj en stad' disabled value={null} />
+              {options.map((option, index) => (
+                <option value={option.value} key={index}>
+                  {option.value}
+                </option>
+              ))}
+            </select>
+          </div>
           <ul>
             {loading ? (
-              <p>Laddar händelser...</p>
+              <p>Laddar händelser... </p>
             ) : (
               events.map((event) => (
                 <div
@@ -122,20 +123,29 @@ function Events() {
                 </div>
               ))
             )}
+            {events.length == 0 && (
+              <>
+                <p className='subA'>
+                  Kunde ej hitta stad, kontrollera stavningen
+                </p>
+              </>
+            )}
           </ul>
         </div>
         <div>
           {selectedImage && (
             <>
-              <div className='mapContainer'>
-                <p>{selectedImage.location_string}</p>
-                <img
-                  className='eventImage'
-                  src={selectedImage.image}
-                  alt={selectedImage.description}
-                  onClick={closeImage}
-                />
-                <p>Tryck på kartan för att stänga</p>
+              <div className='mapWrapper'>
+                <div className='mapContainer'>
+                  <p>{selectedImage.location_string}</p>
+                  <img
+                    className='eventImage'
+                    src={selectedImage.image}
+                    alt={selectedImage.description}
+                    onClick={closeImage}
+                  />
+                  <p>Tryck på kartan för att stänga</p>
+                </div>
               </div>
             </>
           )}

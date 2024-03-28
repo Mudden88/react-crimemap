@@ -33,10 +33,12 @@ function Home() {
 
   return (
     <>
-      <h2 className='title'>Händelser</h2>
-      <p className='title'>Tryck på en händelse för att visa karta</p>
       <div className='grid'>
         <div className='cardWrapper'>
+          <h2 className='title'>Händelser</h2>
+          <hr />
+          <p className='title'>Tryck på en händelse för att visa karta</p>
+
           <ul>
             {loading ? (
               <p>Laddar händelser..</p>
@@ -67,14 +69,16 @@ function Home() {
         <div>
           {selectedImage && (
             <>
-              <div className='mapContainer'>
-                <p>{selectedImage.description}</p>
-                <img
-                  className='eventImage'
-                  src={selectedImage.image}
-                  alt='Karta på händelse'
-                  onClick={closeImage}></img>
-                <p>Tryck på kartan för att stänga</p>
+              <div className='mapWrapper'>
+                <div className='mapContainer'>
+                  <p>{selectedImage.description}</p>
+                  <img
+                    className='eventImage'
+                    src={selectedImage.image}
+                    alt='Karta på händelse'
+                    onClick={closeImage}></img>
+                  <p>Tryck på kartan för att stänga</p>
+                </div>
               </div>
             </>
           )}
