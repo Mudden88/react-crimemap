@@ -3,8 +3,8 @@ function Footer() {
     <>
       <div className='footerwrap'>
         <p>
-          <a href='https://brottsplatskartan.se/sida/api'>
-            Brottsplatskartan.se
+          <a href='https://brottsplatskartan.se/sida/api' target='_blanc'>
+            API utav brottsplatskartan.se - Tryck här för mer information
           </a>
         </p>
 
