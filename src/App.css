@@ -61,3 +61,24 @@ nav ul li a:hover {
   backdrop-filter: blur(8.2px);
   -webkit-backdrop-filter: blur(8.2px);
 }
+
+@media (max-width: 540px) {
+  nav ul li {
+    margin: 0;
+    font-size: 12px;
+  }
+
+  nav ul li a {
+    padding: 2px;
+  }
+
+  nav ul li a:hover {
+    border-radius: 5px;
+    padding-bottom: auto;
+  }
+
+  nav h1 {
+    font-size: 18px;
+    margin: 0;
+  }
+}

@@ -190,3 +190,54 @@ label {
 .subA {
   margin: 30px;
 }
+
+@media (max-width: 540px) {
+  .cardWrapper {
+    width: 100%;
+    font-size: 12px;
+  }
+  .mapWrapper {
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .mapContainer {
+    font-size: 12px;
+    padding: 10px 0;
+  }
+  .eventImage {
+    width: 200px;
+    border-radius: 10px;
+  }
+}
+
+@media (max-width: 720px) {
+  .grid {
+    display: flex;
+    width: 100%;
+    padding: 10px;
+    flex-direction: column;
+  }
+
+  .mapContainer {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px 0;
+  }
+
+  .cardWrapper {
+    margin: auto;
+  }
+
+  .eventImage {
+    width: 320px;
+  }
+}
+
+@media (max-width: 1240px) {
+  .grid {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}
