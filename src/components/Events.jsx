@@ -123,7 +123,7 @@ function Events() {
                 </div>
               ))
             )}
-            {events.length == 0 && (
+            {!loading && events.length === 0 && (
               <>
                 <p className='subA'>
                   Kunde ej hitta stad, kontrollera stavningen
